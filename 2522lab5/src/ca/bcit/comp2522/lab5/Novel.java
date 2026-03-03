@@ -2,6 +2,7 @@ package ca.bcit.comp2522.lab5;
 
 import java.util.Objects;
 
+
 /**
  * Represents a novel with a title, author, and year of publishing
  *
@@ -150,5 +151,11 @@ public class Novel implements Comparable<Novel>
     public int compareTo(Novel that)
     {
         return Integer.compare(this.title.length(), that.title.length());
+    }
+
+    @Override
+    public String toString()
+    {
+        return getTitle() + " by " + getAuthorName() + ", " + getYearPublished();
     }
 }

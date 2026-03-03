@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
 import java.util.Locale;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  * Represents a bookstore. Contains the main method.
@@ -14,8 +19,7 @@ import java.util.Locale;
  *
  * @version 1.0
  */
-public class BookStore
-{
+public class BookStore {
     private static int DECADE_MODULUS = 10;
     private static int DECADE_RANGE = 9;
 
@@ -27,8 +31,7 @@ public class BookStore
      *
      * @param name the bookstore's name
      */
-    public BookStore(final String name)
-    {
+    public BookStore(final String name) {
         validateName(name);
 
         this.name = name;
@@ -540,15 +543,12 @@ public class BookStore
         library.add(n100);
     }
 
-    private static void validateName(final String name)
-    {
-        if (name == null)
-        {
+    private static void validateName(final String name) {
+        if (name == null) {
             throw new IllegalArgumentException("Name cannot be null");
         }
 
-        if (name.isBlank())
-        {
+        if (name.isBlank()) {
             throw new IllegalArgumentException("Name cannot be blank");
         }
     }
@@ -558,8 +558,7 @@ public class BookStore
      *
      * @return bookstore's name
      */
-    public final String getName()
-    {
+    public final String getName() {
         return name;
     }
 
@@ -568,8 +567,7 @@ public class BookStore
      *
      * @return library of novels
      */
-    public final List<Novel> getLibrary()
-    {
+    public final List<Novel> getLibrary() {
         return this.library;
     }
 
@@ -578,10 +576,8 @@ public class BookStore
      *
      * @return All titles of the bookstore
      */
-    public final void printAllTitles()
-    {
-        for (final Novel n : this.library)
-        {
+    public final void printAllTitles() {
+        for (final Novel n : this.library) {
             final String upperCaseTitle;
 
             upperCaseTitle = n.getTitle().toUpperCase();
@@ -594,15 +590,11 @@ public class BookStore
      * Prints the all the novels that contains the specified keyword.
      *
      * @param keyword the keyword to be searched
-     *
      * @return All titles of the bookstore
      */
-    public final void printBookTitle(final String keyword)
-    {
-        for (final Novel n : this.library)
-        {
-            if (n.getTitle().toLowerCase().contains(keyword.toLowerCase()))
-            {
+    public final void printBookTitle(final String keyword) {
+        for (final Novel n : this.library) {
+            if (n.getTitle().toLowerCase().contains(keyword.toLowerCase())) {
                 System.out.println(n.getTitle());
             }
         }
@@ -612,21 +604,18 @@ public class BookStore
     /**
      * Prints all the novels in alphanumerical order.
      */
-    public final void printTitlesInAlphaOrder()
-    {
+    public final void printTitlesInAlphaOrder() {
         final List<String> alphaList;
 
-        alphaList= new ArrayList<>();
+        alphaList = new ArrayList<>();
 
-        for (final Novel n : this.library)
-        {
+        for (final Novel n : this.library) {
             alphaList.add(n.getTitle());
         }
 
         Collections.sort(alphaList);
 
-        for (final String s : alphaList)
-        {
+        for (final String s : alphaList) {
             System.out.println(s);
         }
     }
@@ -636,18 +625,15 @@ public class BookStore
      *
      * @param decade
      */
-    public final void printGroupByDecade(final int decade)
-    {
+    public final void printGroupByDecade(final int decade) {
         final int trueDecade;
 
         trueDecade = decade - (decade % DECADE_MODULUS);
 
-        for (final Novel n : this.library)
-        {
+        for (final Novel n : this.library) {
             if (n.getYearPublished() >= trueDecade &&
-                n.getYearPublished() <= trueDecade + DECADE_RANGE)
-            {
-             System.out.println(n.getTitle());
+                    n.getYearPublished() <= trueDecade + DECADE_RANGE) {
+                System.out.println(n.getTitle());
             }
         }
     }
@@ -655,11 +641,9 @@ public class BookStore
     /**
      * Gets the novel with the longest title in the library.
      */
-    public final void getLongest()
-    {
+    public final void getLongest() {
 
-        if (library.getFirst() == null)
-        {
+        if (library.getFirst() == null) {
             return;
         }
 
@@ -667,10 +651,8 @@ public class BookStore
 
         longest = library.getFirst();
 
-        for (final Novel n : this.library)
-        {
-            if (longest.compareTo(n) < 0)
-            {
+        for (final Novel n : this.library) {
+            if (longest.compareTo(n) < 0) {
                 longest = n;
             }
         }
@@ -682,15 +664,11 @@ public class BookStore
      * Checks if there are any books written in a given year.
      *
      * @param year the year given
-     *
      * @return True is there is at least a book in the given year. False otherwise
      */
-    public final boolean isThereABookWrittenIn(final int year)
-    {
-        for (final Novel n : this.library)
-        {
-            if (n.getYearPublished() == year)
-            {
+    public final boolean isThereABookWrittenIn(final int year) {
+        for (final Novel n : this.library) {
+            if (n.getYearPublished() == year) {
                 return true;
             }
         }
@@ -704,16 +682,13 @@ public class BookStore
      * @param word the given word
      * @return the number of titles that contain the given word
      */
-    public final int howManyBooksContain(final String word)
-    {
+    public final int howManyBooksContain(final String word) {
         int count;
 
         count = 0;
 
-        for (final Novel n : this.library)
-        {
-            if (n.getTitle().toLowerCase().contains(word.toLowerCase()))
-            {
+        for (final Novel n : this.library) {
+            if (n.getTitle().toLowerCase().contains(word.toLowerCase())) {
                 ++count;
             }
         }
@@ -725,12 +700,10 @@ public class BookStore
      * Checks the percentage of books that were written in a range of years, relative to the whole library.
      *
      * @param first start year for the range (inclusive)
-     * @param last end year for the range (inclusive)
-     *
+     * @param last  end year for the range (inclusive)
      * @return the percentage of books written in the given range of years
      */
-    public final String whichPercentWrittenBetween(final int first, final int last)
-    {
+    public final String whichPercentWrittenBetween(final int first, final int last) {
         final DecimalFormat percentageFormatter;
         final int allBooks;
         int booksBetween;
@@ -740,11 +713,9 @@ public class BookStore
         allBooks = library.size();
         booksBetween = 0;
 
-        for (final Novel n : this.library)
-        {
+        for (final Novel n : this.library) {
             if (n.getYearPublished() >= first &&
-                    n.getYearPublished() <= last)
-            {
+                    n.getYearPublished() <= last) {
                 ++booksBetween;
             }
         }
@@ -759,10 +730,8 @@ public class BookStore
      *
      * @return the oldest novel
      */
-    public final Novel getOldestBook()
-    {
-        if (library.getFirst() == null)
-        {
+    public final Novel getOldestBook() {
+        if (library.getFirst() == null) {
             return null;
         }
 
@@ -770,10 +739,8 @@ public class BookStore
 
         oldestNovel = library.getFirst();
 
-        for (final Novel n : this.library)
-        {
-            if (oldestNovel.getYearPublished() > n.getYearPublished())
-            {
+        for (final Novel n : this.library) {
+            if (oldestNovel.getYearPublished() > n.getYearPublished()) {
                 oldestNovel = n;
             }
         }
@@ -785,19 +752,15 @@ public class BookStore
      * Creates an ArrayList of novels with a specific character length.
      *
      * @param titleLength the given title length
-     *
      * @return the ArrayList of novels with a specific character length
      */
-    public final List<Novel> getBooksThisLength(final int titleLength)
-    {
+    public final List<Novel> getBooksThisLength(final int titleLength) {
         final List<Novel> lengthList;
 
         lengthList = new ArrayList<>();
 
-        for (final Novel n : this.library)
-        {
-            if (n.getTitle().length() == titleLength)
-            {
+        for (final Novel n : this.library) {
+            if (n.getTitle().length() == titleLength) {
                 lengthList.add(n);
             }
         }
@@ -806,12 +769,63 @@ public class BookStore
     }
 
     /**
+     * Part 2:
+     * Creates a map of all novels (title as key, Novel as value),
+     * removes titles containing "the" (case-insensitive),
+     * and prints the remaining novels in alphabetical order.
+     */
+    public final void runPart2()
+    {
+        final Map<String, Novel> map = new HashMap<>();
+
+        for (final Novel n : library)
+        {
+            map.put(n.getTitle(), n);
+        }
+
+        System.out.println("\n[Part 2] Titles via keySet iterator:");
+        final Iterator<String> it = map.keySet().iterator();
+
+        while (it.hasNext())
+        {
+            final String key = it.next();
+            System.out.println(key);
+        }
+
+        final Iterator<Map.Entry<String, Novel>> entryIt = map.entrySet().iterator();
+
+        while (entryIt.hasNext())
+        {
+            final Map.Entry<String, Novel> entry = entryIt.next();
+            final String key = entry.getKey();
+
+            if (key.toLowerCase().contains("the"))
+            {
+                entryIt.remove();
+            }
+        }
+
+        System.out.println(
+                "\n[Part 2] Removed titles containing 'the'. Remaining count: "
+                        + map.size()
+        );
+
+        final List<String> keyList = new ArrayList<>(map.keySet());
+        Collections.sort(keyList);
+
+        System.out.println("\n[Part 2] Sorted novels (without 'the'):");
+
+        for (final String sortedTitle : keyList)
+        {
+            System.out.println(map.get(sortedTitle));
+        }
+    }
+    /**
      * Entry point method for using the bookstore.
      *
      * @param args unused
      */
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         final BookStore bookstore;
         final Novel oldest;
         final List<Novel> fifteenCharTitles;
@@ -851,8 +865,11 @@ public class BookStore
         fifteenCharTitles = bookstore.getBooksThisLength(15);
         fifteenCharTitles.forEach(novel -> System.out.println(novel.getTitle()));
 
+        bookstore.runPart2();
 
 
     }
 
 }
+
+
