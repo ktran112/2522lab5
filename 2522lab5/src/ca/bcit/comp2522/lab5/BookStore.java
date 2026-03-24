@@ -20,8 +20,8 @@ import java.util.Iterator;
  * @version 1.0
  */
 public class BookStore {
-    private static int DECADE_MODULUS = 10;
-    private static int DECADE_RANGE = 9;
+    private static final int DECADE_MODULUS = 10;
+    private static final int DECADE_RANGE = 9;
 
     private final String name;
     private final List<Novel> library;
@@ -543,7 +543,15 @@ public class BookStore {
         library.add(n100);
     }
 
-    private static void validateName(final String name) {
+    /*
+     * Validates BookStore name.
+     * Constraints:
+     * - Cannot be null
+     * - Cannot be blank
+     *
+     * @param name The name to be validated
+     */
+    private static final void validateName(final String name) {
         if (name == null) {
             throw new IllegalArgumentException("Name cannot be null");
         }
@@ -573,8 +581,6 @@ public class BookStore {
 
     /**
      * Prints the entire library of the bookstore (Only titles).
-     *
-     * @return All titles of the bookstore
      */
     public final void printAllTitles() {
         for (final Novel n : this.library) {
@@ -590,7 +596,6 @@ public class BookStore {
      * Prints the all the novels that contains the specified keyword.
      *
      * @param keyword the keyword to be searched
-     * @return All titles of the bookstore
      */
     public final void printBookTitle(final String keyword) {
         for (final Novel n : this.library) {
@@ -623,7 +628,7 @@ public class BookStore {
     /**
      * Prints books based off the decade it was made.
      *
-     * @param decade
+     * @param decade the decade to group
      */
     public final void printGroupByDecade(final int decade) {
         final int trueDecade;
@@ -664,6 +669,7 @@ public class BookStore {
      * Checks if there are any books written in a given year.
      *
      * @param year the year given
+     *
      * @return True is there is at least a book in the given year. False otherwise
      */
     public final boolean isThereABookWrittenIn(final int year) {
@@ -680,6 +686,7 @@ public class BookStore {
      * Counts the amount of books that contain a given word.
      *
      * @param word the given word
+     *
      * @return the number of titles that contain the given word
      */
     public final int howManyBooksContain(final String word) {
@@ -701,9 +708,11 @@ public class BookStore {
      *
      * @param first start year for the range (inclusive)
      * @param last  end year for the range (inclusive)
+     *
      * @return the percentage of books written in the given range of years
      */
-    public final String whichPercentWrittenBetween(final int first, final int last) {
+    public final String whichPercentWrittenBetween(final int first,
+                                                   final int last) {
         final DecimalFormat percentageFormatter;
         final int allBooks;
         int booksBetween;
@@ -752,6 +761,7 @@ public class BookStore {
      * Creates an ArrayList of novels with a specific character length.
      *
      * @param titleLength the given title length
+     *
      * @return the ArrayList of novels with a specific character length
      */
     public final List<Novel> getBooksThisLength(final int titleLength) {
@@ -769,12 +779,11 @@ public class BookStore {
     }
 
     /**
-     * Part 2:
      * Creates a map of all novels (title as key, Novel as value),
      * removes titles containing "the" (case-insensitive),
      * and prints the remaining novels in alphabetical order.
      */
-    public final void runPart2()
+    public final void generateKeyPairs()
     {
         final Map<String, Novel> map = new HashMap<>();
 
@@ -820,6 +829,7 @@ public class BookStore {
             System.out.println(map.get(sortedTitle));
         }
     }
+
     /**
      * Entry point method for using the bookstore.
      *
@@ -865,9 +875,7 @@ public class BookStore {
         fifteenCharTitles = bookstore.getBooksThisLength(15);
         fifteenCharTitles.forEach(novel -> System.out.println(novel.getTitle()));
 
-        bookstore.runPart2();
-
-
+        bookstore.generateKeyPairs();
     }
 
 }

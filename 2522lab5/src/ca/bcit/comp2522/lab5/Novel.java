@@ -40,7 +40,15 @@ public class Novel implements Comparable<Novel>
         this.yearPublished = yearPublished;
     }
 
-    private static void validateTitle(final String title)
+    /*
+     * Validates the Novel Title.
+     * Constraints:
+     * - Cannot be null
+     * - Cannot be blank
+     *
+     * @param title The title to be validated
+     */
+    private static final void validateTitle(final String title)
     {
         if (title == null)
         {
@@ -53,7 +61,7 @@ public class Novel implements Comparable<Novel>
         }
     }
 
-    private static void validateAuthorName(final String authorName)
+    private static final void validateAuthorName(final String authorName)
     {
         if (authorName == null)
         {
@@ -66,16 +74,19 @@ public class Novel implements Comparable<Novel>
         }
     }
 
-    private static void validateYearPublished(final int yearPublished)
+    private static final void validateYearPublished(final int yearPublished)
     {
         if (yearPublished < MINIMUM_YEAR)
         {
-            throw new IllegalArgumentException("Year cannot be negative: " + yearPublished);
+            throw new IllegalArgumentException("Year cannot be lesser than minimum year: " + yearPublished);
         }
 
         if (yearPublished > CURRENT_YEAR)
         {
-            throw new IllegalArgumentException("Year, " + yearPublished +  ", cannot be greater than the current year: " + CURRENT_YEAR);
+            throw new IllegalArgumentException("Year, " +
+                                                yearPublished +
+                                                ", cannot be greater than the current year: " +
+                                                CURRENT_YEAR);
         }
     }
 
@@ -147,12 +158,24 @@ public class Novel implements Comparable<Novel>
         return Objects.hashCode(this.getTitle());
     }
 
+    /**
+     * Compares current Novel with another
+     *
+     * @param that the other Novel
+     *
+     * @return positive number if this.title is longer, negative number if this.title is shorter, 0 if this.title is equal length
+     */
     @Override
     public int compareTo(Novel that)
     {
         return Integer.compare(this.title.length(), that.title.length());
     }
 
+    /**
+     * Creates a string with the title, author, and year of publishing.
+     *
+     * @return detailed string
+     */
     @Override
     public String toString()
     {

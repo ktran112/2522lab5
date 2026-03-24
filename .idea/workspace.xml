@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="750e09e7-7901-4a24-a8b5-4c8acbd7565d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Lab3/2522Lab3/src/code/ca/bcit/comp2522lab3/IPhone17.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../comp2522 lab 1/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../comp2522 lab 1/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../comp2522 lab 1/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../comp2522 lab 1/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../comp2522 lab 1/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../comp2522 lab 1/comp2522 lab 1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../comp2522 lab 1/src/code/ca/bcit/comp2522/bank/BankAccount.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../comp2522 lab 1/src/code/ca/bcit/comp2522/bank/BankClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../comp2522 lab 1/src/code/ca/bcit/comp2522/bank/Date.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../comp2522 lab 1/src/code/ca/bcit/comp2522/bank/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../comp2522 lab 1/src/code/ca/bcit/comp2522/bank/Name.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2522lab5/ca/bcit/comp2522/lab5/BookStore.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2522lab5/ca/bcit/comp2522/lab5/Novel.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,18 +18,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "ktran112"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ktran112&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/ktran112/2522lab5.git",
-    "accountId": "5f3ae577-cc27-4799-8360-fcb138ff737c"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ktran112/2522lab5.git&quot;,
+    &quot;accountId&quot;: &quot;5f3ae577-cc27-4799-8360-fcb138ff737c&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -51,9 +43,9 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Kiet/Documents/MEGA/2Term/OOPJava/Projects/Lab5/2522lab5",
+    "last_opened_file_path": "C:/Users/Kiet/Documents/MEGA/2Term/OOPJava/Projects/Lab5Laptop/2522lab5",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.0"
